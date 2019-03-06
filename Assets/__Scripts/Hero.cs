@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hero : MonoBehaviour {
-    static public Hero s;   //Singleton
+    static public Hero S;   //Singleton
 
     //These fields control the movement of the ship
     public float speed = 30;
@@ -13,10 +13,12 @@ public class Hero : MonoBehaviour {
     //Ship status information
     public float shieldLevel = 1;
     public bool ________________;
+    public Bounds bounds;
 
     private void Awake()
     {
-        s = this;   //Set singleton
+        S = this;   //Set singleton
+        bounds = Utils.CombineBoundsofChildren(this.gameObject);
     }
 
     // Use this for initialization
