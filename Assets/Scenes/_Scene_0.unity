@@ -375,14 +375,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e87f62958a14db68e492971b25a283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameRestartDelay: 2
   speed: 30
   rollMult: -45
   pitchMult: 30
-  shieldLevel: 1
+  _shieldLevel: 1
   ________________: 0
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
+  lastTriggerGo: {fileID: 0}
 --- !u!4 &381741541
 Transform:
   m_ObjectHideFlags: 0
@@ -390,7 +392,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 381741538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1666506912}
@@ -657,9 +659,9 @@ GameObject:
   - component: {fileID: 1327275409}
   - component: {fileID: 1327275412}
   - component: {fileID: 1327275408}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Shield
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
