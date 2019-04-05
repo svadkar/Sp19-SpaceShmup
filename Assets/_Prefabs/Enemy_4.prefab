@@ -363,6 +363,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d18e535069b84645a32ca7c18fefc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
+  fireRate: 0.3
+  health: 20
+  score: 100
+  showDamageForFrames: 2
+  powerUpDropChance: 1
+  ______________: 0
+  originalColors: []
+  materials: []
+  remainingDamageFrames: 0
+  bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  boundsCenterOffset: {x: 0, y: 0, z: 0}
+  points: []
+  timeStart: 0
+  duration: 4
+  parts:
+  - name: Cockpit
+    health: 10
+    protectedBy:
+    - Fuselage
+    go: {fileID: 0}
+    mat: {fileID: 0}
+  - name: Fuselage
+    health: 10
+    protectedBy:
+    - Wing_L
+    - Wing_R
+    go: {fileID: 0}
+    mat: {fileID: 0}
+  - name: Wing_L
+    health: 10
+    protectedBy: []
+    go: {fileID: 0}
+    mat: {fileID: 0}
+  - name: Wing_R
+    health: 10
+    protectedBy: []
+    go: {fileID: 0}
+    mat: {fileID: 0}
 --- !u!135 &135611074904290734
 SphereCollider:
   m_ObjectHideFlags: 1
