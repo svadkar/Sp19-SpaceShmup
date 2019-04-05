@@ -20,6 +20,12 @@ public class Hero : MonoBehaviour {
     public bool ________________;
     public Bounds bounds;
 
+    //Declare a new delegate type WeaponFireDelegate
+    public delegate void WeaponFireDelegate();
+
+    //Create a WeaponFireDelegate field named fireDelegate.
+    public WeaponFireDelegate fireDelegate;
+
     private void Awake()
     {
         S = this;   //Set singleton
@@ -56,7 +62,15 @@ public class Hero : MonoBehaviour {
 
         //Rotate the ship to tmake it feel more dynamic
         transform.rotation = Quaternion.Euler(yAxis * pitchMult, xAxis * rollMult, 0);
-	}
+
+        //Use the fireDelegate to fire Weapons
+        //Fire, make sure the Axis("Jump") button is press then ensure that fireDelegate isn't null to avoid an error
+        if (Input.GetAxis("Jump") == 1 && fireDelegate != null)
+        {
+            fireDelegate();
+        }
+
+    }
 
     //This variable hold a reference to the last triggering GameObject
     public GameObject lastTriggerGo = null;
