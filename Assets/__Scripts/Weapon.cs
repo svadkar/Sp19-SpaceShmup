@@ -45,7 +45,7 @@ public class Weapon : MonoBehaviour {
     private WeaponType _type = WeaponType.blaster;
     public WeaponDefinition def;
     public GameObject collar;
-    public float lateShot;
+    public float lastShot;
 
     void Awake()
     {
