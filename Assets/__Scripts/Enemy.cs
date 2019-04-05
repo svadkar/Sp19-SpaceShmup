@@ -7,21 +7,42 @@ public class Enemy : MonoBehaviour {
     public float speed = 10f;   //The speed in m/s
     public float fireRate = 0.3f; //Seconds/shot (Unused)
     public float health = 10;
-    public int score = 100;
+    public int score = 100;         //Points earned for destroying this
+
+    public int showDamageForFrames = 2; //# frames to show damage
 
     public bool ______________;
+
+    public Color[] originalColors;
+    public Material[] materials;    //All the materials of this & its children
+    public int remainingDamageFrames = 0;   //Damage frames left
 
     public Bounds bounds;   //The bounds of this and its child
     public Vector3 boundsCenterOffset;  //Dist of bounds.center
 
     void Awake()
     {
+        materials = Utils.GetAllMaterials(gameObject);
+        originalColors = new Color[materials.Length];
+        for (int i=0; i<materials.Length; i++)
+        {
+            originalColors[i] = materials[i].color;
+        }
+
         InvokeRepeating("CheckOffscreen", 0f, 2f);
     }
 
     void Update()
     {
         Move();
+        if (remainingDamageFrames > 0)
+        {
+            remainingDamageFrames--;
+            if (remainingDamageFrames == 0)
+            {
+                UnShowDamage();
+            }
+        }
     }
 
     public virtual void Move()
@@ -89,6 +110,7 @@ public class Enemy : MonoBehaviour {
                     break;
                 }
                 //Hurt this Enemy
+                ShowDamage();
                 //Get the damage amount from the Projectile.type & Main.W_Defs
                 health -= Main.W_DEFS[p.type].damageOnHit;
                 if (health <= 0)
@@ -98,6 +120,23 @@ public class Enemy : MonoBehaviour {
                 }
                 Destroy(other);
                 break;
+        }
+    }
+
+    void ShowDamage()
+    {
+        foreach (Material m in materials)
+        {
+            m.color = Color.red;
+        }
+        remainingDamageFrames = showDamageForFrames;
+    }
+
+    void UnShowDamage()
+    {
+        for (int i=0; i<materials.Length; i++)
+        {
+            materials[i].color = originalColors[i];
         }
     }
 }

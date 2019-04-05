@@ -217,7 +217,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   fireRate: 0.3
-  health: 100
+  health: 10
+  score: 100
   ______________: 0
   bounds:
     m_Center: {x: 0, y: 0, z: 0}

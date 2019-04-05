@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Main : MonoBehaviour {
 
@@ -81,6 +82,6 @@ public class Main : MonoBehaviour {
     public void Restart()
     {
         //Reload _Scene_0 to restart the game
-        Application.LoadLevel("_Scene_0");
+        SceneManager.LoadScene("_Scene_0");
     }
 }
