@@ -307,7 +307,12 @@ MonoBehaviour:
   rollMult: -45
   pitchMult: 30
   _shieldLevel: 1
-  weapons: []
+  weapons:
+  - {fileID: 604595514}
+  - {fileID: 1629832377}
+  - {fileID: 2027001287}
+  - {fileID: 1978956638}
+  - {fileID: 2076696814}
   ________________: 0
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -460,6 +465,12 @@ MonoBehaviour:
   ______________________: 0
   activeWeaponTypes: 
   enemySpawnRate: 0
+--- !u!114 &604595514 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114452302967181396, guid: 6f6f6904bcfc33848bef118df1e8b838,
+    type: 2}
+  m_PrefabInternal: {fileID: 1128375035}
+  m_Script: {fileID: 11500000, guid: 43d86d744c568654c81f710004b124d7, type: 3}
 --- !u!1 &1054280875
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,6 +809,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4974239431958840, guid: 6f6f6904bcfc33848bef118df1e8b838,
     type: 2}
   m_PrefabInternal: {fileID: 1623486756}
+--- !u!114 &1629832377 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114452302967181396, guid: 6f6f6904bcfc33848bef118df1e8b838,
+    type: 2}
+  m_PrefabInternal: {fileID: 1623486756}
+  m_Script: {fileID: 11500000, guid: 43d86d744c568654c81f710004b124d7, type: 3}
 --- !u!1001 &1636196502
 Prefab:
   m_ObjectHideFlags: 0
@@ -934,3 +951,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1666506911}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1978956638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114452302967181396, guid: 6f6f6904bcfc33848bef118df1e8b838,
+    type: 2}
+  m_PrefabInternal: {fileID: 375416609}
+  m_Script: {fileID: 11500000, guid: 43d86d744c568654c81f710004b124d7, type: 3}
+--- !u!114 &2027001287 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114452302967181396, guid: 6f6f6904bcfc33848bef118df1e8b838,
+    type: 2}
+  m_PrefabInternal: {fileID: 1636196502}
+  m_Script: {fileID: 11500000, guid: 43d86d744c568654c81f710004b124d7, type: 3}
+--- !u!114 &2076696814 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114452302967181396, guid: 6f6f6904bcfc33848bef118df1e8b838,
+    type: 2}
+  m_PrefabInternal: {fileID: 1226198351}
+  m_Script: {fileID: 11500000, guid: 43d86d744c568654c81f710004b124d7, type: 3}
