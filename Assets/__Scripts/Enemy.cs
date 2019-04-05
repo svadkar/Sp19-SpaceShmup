@@ -6,7 +6,8 @@ public class Enemy : MonoBehaviour {
 
     public float speed = 10f;   //The speed in m/s
     public float fireRate = 0.3f; //Seconds/shot (Unused)
-    public float health = 100;
+    public float health = 10;
+    public int score = 100;
 
     public bool ______________;
 
