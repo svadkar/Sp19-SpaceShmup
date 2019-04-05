@@ -71,4 +71,32 @@ public class Enemy : MonoBehaviour {
             }
         }
     }
+
+    void OnCollisionEnter(Collision coll)
+    {
+        GameObject other = coll.gameObject;
+        switch(other.tag)
+        {
+            case "ProjectileHero":
+                Projectile p = other.GetComponent<Projectile>();
+                //Enemies don't take damage unless they're onscreen
+                //THis stops the player from shooting them before they are visible
+                bounds.center = transform.position + boundsCenterOffset;
+                if (bounds.extents == Vector3.zero || Utils.ScreenBoundsCheck (bounds, BoundsTest.offScreen) != Vector3.zero)
+                {
+                    Destroy(other);
+                    break;
+                }
+                //Hurt this Enemy
+                //Get the damage amount from the Projectile.type & Main.W_Defs
+                health -= Main.W_DEFS[p.type].damageOnHit;
+                if (health <= 0)
+                {
+                    //Destroy this enemy
+                    Destroy(this.gameObject);
+                }
+                Destroy(other);
+                break;
+        }
+    }
 }

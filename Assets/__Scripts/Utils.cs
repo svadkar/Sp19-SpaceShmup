@@ -46,9 +46,16 @@ public class Utils : MonoBehaviour {
         if(go.GetComponent<Renderer>() != null)
         {
             //Expand b to contain the Renderer's Bounds
+            b = BoundsUnion(b, go.GetComponent<Renderer>().bounds);
+        }
+
+        //If this GameObject has a Collider Component
+        if (go.GetComponent<Collider>() != null)
+        {
+            //Expand b to contain the Collider's Bounds
             b = BoundsUnion(b, go.GetComponent<Collider>().bounds);
         }
-        
+
         //Iterate through each child of this gameObject.transform
         foreach (Transform t in go.transform)
         {
@@ -262,4 +269,20 @@ public class Utils : MonoBehaviour {
         return (FindTaggedParent(t.gameObject));
     }
 
+    //============================= Materials Functions =============================\\
+
+    //Returns a list of all Material in this GameObject or its children
+    static public Material[] GetAllMaterials(GameObject go)
+    {
+        List<Material> mats = new List<Material>();
+        if(go.GetComponent<Renderer>() != null)
+        {
+            mats.Add(go.GetComponent<Renderer>().material);
+        }
+        foreach (Transform t in go.transform)
+        {
+            mats.AddRange(GetAllMaterials(t.gameObject));
+        }
+        return (mats.ToArray());
+    }
 }
